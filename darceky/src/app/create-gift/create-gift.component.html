@@ -1,0 +1,31 @@
+<h3 mat-dialog-title >Please Add Gift Details!</h3>
+<mat-dialog-content>
+<form class="example-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+    <div class="create-gift-main">
+        <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Gift name</mat-label>
+      <input matInput placeholder="Basketball" formControlName="giftName" >
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field class="example-full-width">
+        <mat-label>Gift link</mat-label>
+        <input matInput placeholder="https://www.alza.cz/" formControlName="giftLink" >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Image link</mat-label>
+        <input matInput placeholder="https://cdn.alza.cz/ImgW.ashx?fd=f16&cd=FW830w2a" formControlName="imageLink" >
+      </mat-form-field>
+    </div>
+    </div>
+    <button mat-button>Add</button> 
+    
+  </form>
+</mat-dialog-content>
+  
+    
+    
+  

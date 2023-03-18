@@ -1,0 +1,28 @@
+.example-card {
+   
+background-color: aqua;
+    
+  }
+mat-grid-tile{
+  background-color: rgb(232, 232, 240);
+ 
+ 
+}
+
+mat-grid-list{
+
+  margin: 50px;
+ 
+}
+  .gift-page {
+    display:grid;
+    justify-content: space-arouncd;
+    
+    margin-left: 10px;
+  }
+
+  img{
+  background-color:rgb(232, 232, 240); ;
+    width:100 px;
+    height: 150px;
+  }

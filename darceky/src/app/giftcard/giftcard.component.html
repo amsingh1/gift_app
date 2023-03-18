@@ -1,0 +1,23 @@
+
+  <mat-grid-list cols="6"  rowHeight="300px" gutterSize="100px">
+    <a href="https://www.alza.cz/" target="blank">
+    <mat-grid-tile   *ngFor="let item of
+    myPresents">
+
+    <div>
+      
+      <h2>{{item.name}}</h2>
+      <h3>Dog Breed</h3>
+   <div>
+    <img  src={{item.img}}  alt="Photo of a Shiba Inu"><br>
+  </div>
+    
+   
+      <button mat-button>BUY ME</button>
+      
+    </div>
+ 
+</mat-grid-tile>
+</a>
+</mat-grid-list>
+
