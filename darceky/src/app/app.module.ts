@@ -12,13 +12,16 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { CreateGiftComponent } from './create-gift/create-gift.component'
 import {MatInputModule} from '@angular/material/input'
 import {MatDialogModule} from '@angular/material/dialog'
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { RoutingModule } from './routing.module'
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     GiftcardComponent,
-    CreateGiftComponent
+    CreateGiftComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     MatGridListModule,
     MatInputModule, 
     MatDialogModule,
-    ReactiveFormsModule ],
+    ReactiveFormsModule,
+    RoutingModule ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,19 @@
+{
+  "name": "backend_darceky",
+  "version": "1.0.0",
+  "description": "giftapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Amit",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.3.2",
+    "nodemon": "^2.0.22"
+  }
+}

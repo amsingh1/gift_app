@@ -1,0 +1,25 @@
+
+
+.example-full-width {
+    width: 100%;
+  }
+.loginBox{
+    min-width: 300px;
+    max-width: 350px;
+    background-color:rgba(255, 255, 255, 0.75);
+    
+    border: 1px solid rgb(180, 174, 174);
+    padding: 10px;
+    
+  }
+
+  .login-container{
+    background-image: url("src/assets/giftAppBg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  min-width: 100%;
+  min-height: 100%;
+  
+  }
+  

@@ -3,11 +3,18 @@
         
    <span>Alex</span>
 
-
-   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="openCreateGift()">
+<div class="header-right-icons">
+  
+   <button mat-button  aria-label="form" (click)="openCreateGift()">
     <mat-icon >add</mat-icon>
   </button>
 
+  <button mat-button (click)="logOut()">
+    <mat-icon  >logout</mat-icon>
+  </button>
+
+</div>
  </mat-toolbar>
 
+ <app-giftcard [listOfGift]="myGifts"></app-giftcard>
  

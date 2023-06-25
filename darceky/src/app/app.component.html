@@ -1,2 +1,2 @@
-<app-header></app-header>
-<app-giftcard></app-giftcard>
+<app-login *ngIf="!login"></app-login>
+<router-outlet *ngIf="login"></router-outlet>
