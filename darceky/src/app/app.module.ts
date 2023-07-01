@@ -14,14 +14,17 @@ import {MatInputModule} from '@angular/material/input'
 import {MatDialogModule} from '@angular/material/dialog'
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { RoutingModule } from './routing.module'
+import { RoutingModule } from './routing.module';
+import {SignupComponent} from './signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     GiftcardComponent,
     CreateGiftComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { RoutingModule } from './routing.module'
     MatInputModule, 
     MatDialogModule,
     ReactiveFormsModule,
-    RoutingModule ],
+    RoutingModule,
+    HttpClientModule ],
   providers: [],
   bootstrap: [AppComponent]
 })

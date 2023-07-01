@@ -29,4 +29,10 @@ let email:any=this.loginFormData.value.Email
     localStorage.setItem("loginToken",email )
     this.route.navigate(['home'])
   }
+
+  onSignUp(){
+    this.route.navigate(['signup'])
+
+    console.log('sign function up working')
+  }
 }
