@@ -66,7 +66,7 @@ router.post('/login', (req, res) => {
 
       if (passwordMatch) {
         // Passwords match, login successful
-        res.status(200).json({ message: 'Login successful', username: user.username });
+        res.status(200).json({ message: 'Login successful!', username: user.username });
       } else {
         // Passwords don't match
         res.status(401).json({ error: 'Invalid username or password' });

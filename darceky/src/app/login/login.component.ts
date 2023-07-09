@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-constructor(public route:Router){}
+constructor(public route:Router, private authservice:AuthService){}
   loginFormData = new FormGroup({
-    Email: new FormControl('',[Validators.required,Validators.email]),
+    UserName: new FormControl(''),
     Password: new FormControl('',[Validators.required,Validators.minLength(8)]),
     
   });
@@ -24,10 +25,16 @@ constructor(public route:Router){}
   onSubmit(){
     if (!this.loginFormData.valid)
     return
+    this.authservice.signIn(this.loginFormData.value).subscribe({next :(res: any) => { 
+      console.log(res.message)
+      this.route.navigate(['home'])
+      },error:(error)=>{
+      
+      console.log("myerror",error.error)}})
     console.log(this.loginFormData.value)
-let email:any=this.loginFormData.value.Email
+let email:any=this.loginFormData.value.UserName
     localStorage.setItem("loginToken",email )
-    this.route.navigate(['home'])
+    
   }
 
   onSignUp(){

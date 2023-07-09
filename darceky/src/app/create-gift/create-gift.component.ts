@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import {GiftCardDataService} from '../services/gift-card-data.service'
 @Component({
   selector: 'app-create-gift',
   templateUrl: './create-gift.component.html',
@@ -8,7 +9,7 @@ import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dial
 })
 export class CreateGiftComponent implements OnInit {
 
-  constructor(private dialogRef: MatDialogRef<CreateGiftComponent>){
+  constructor(private dialogRef: MatDialogRef<CreateGiftComponent>, private giftCardData : GiftCardDataService){
 
   }
 
@@ -19,45 +20,62 @@ export class CreateGiftComponent implements OnInit {
     giftLink: new FormControl('',Validators.required),
     imageLink:new FormControl('',Validators.required)
   });
+
+
 ngOnInit(){
-  const url = 'https://www.alza.cz/hracky/speedy-car-d6776060.htm?o=1';
-
-// Fetch the webpage HTML using the Fetch API
-fetch(url)
-  .then(response => response.text())
-  .then(html => {
-
-    // Create a new DOM element and set its innerHTML to the webpage HTML
-    const domParser = new DOMParser();
-    const doc = domParser.parseFromString(html, 'text/html');
-
-    // Get all the image elements on the page
-    const images = doc.getElementsByTagName('img');
-
-    // Loop through each image element and get the URL of the image
-    for (let i = 0; i < images.length; i++) {
-      const imageUrl = images[i].src;
-      console.log("myUrl",imageUrl);
-    }
-  })
-  .catch(error => console.log(error));
+ 
 }
 
   onSubmit(){
 
     if(this.formData.invalid)
     return
-    
+    this.giftCardData.sendGiftData(this.formData.value).subscribe({next :(res: any) => { 
+      console.log(res.message,"gift list", res)
+      this.dialogRef.close(res.gift)
+
+
+      },error:(error)=>{
+      
+      console.log("myerror",error.error)}} )
     this.dialogRef.close(this.formData.value)
-  
+    
+  //console.log("giftdata",this.formData.value)
    this.formData.reset()
-   
+   location.reload();
   }
+
+// onSubmit() {
+//   if (this.formData.invalid) {
+//     return;
+//   }
+
+//   this.giftCardData.sendGiftData(this.formData.value).subscribe({
+//     next: (res: any) => {
+//       console.log(res.message, "gift list", res);
+//       this.giftDbValue = res.gift;
+//       console.log("this.giftDbValue", this.giftDbValue);
+
+//       // Close the dialog after receiving the response
+//       this.dialogRef.close(this.giftDbValue);
+//     },
+//     error: (error) => {
+//       console.log("myerror", error.error);
+//     },
+//   });
+
+//   // Remove the following line from here
+//   // this.dialogRef.close(this.giftDbValue);
+//   console.log("current DB gift", this.giftDbValue);
+
+//   // Reset the form after sending the gift data
+//   this.formData.reset();
+// }
 
   close() {
 
     
-    this.dialogRef.close(undefined);
+    this.dialogRef.close();
   }
   
 }
