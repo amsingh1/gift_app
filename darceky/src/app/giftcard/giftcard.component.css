@@ -5,13 +5,13 @@ background-color: aqua;
   }
 mat-grid-tile{
   background-color: rgb(232, 232, 240);
- 
- 
+  min-width: 12rem;
+  
 }
 
 mat-grid-list{
 
-  margin: 50px;
+  margin: 20px;
  
 }
   .gift-page {

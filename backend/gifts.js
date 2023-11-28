@@ -38,7 +38,22 @@ router.post('/sendgift', (req, res) => {
   
   
 
+  router.delete('/deletegift/:id', (req, res) => {
+    const giftId = req.params.id;
 
+    // Delete the gift from the database based on ID
+    const sql = 'DELETE FROM gifts WHERE id = ?';
+    mysqlconnect.query(sql, [giftId], (err, result) => {
+        if (err) {
+            console.error('Failed to delete gift:', err);
+            res.status(500).json({ error: 'Failed to delete gift' });
+            return;
+        }
+
+        console.log('Gift deleted successfully', result);
+        res.status(200).json({ message: 'Gift deleted successfully' });
+    });
+});
 
 
 

@@ -1,9 +1,12 @@
 <mat-grid-list cols="6" rowHeight="300px" gutterSize="100px">
   
-    <mat-grid-tile *ngFor="let item of listOfGift">
+    <mat-grid-tile *ngFor="let item of listOfGift" [colspan]="1" [rowspan]="1" (click)="deleteGift(item.id)" >
+      <div>
+      <button mat-button color="warn">X</button>
+    </div>
       <a href={{item.giftLink}} target="blank">
       <div>
-
+        
         <h2>{{item.giftName}}</h2>
        
         <div>

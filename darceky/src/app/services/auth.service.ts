@@ -21,4 +21,12 @@ export class AuthService {
    
     return this.http.post("http://localhost:3000/login",data
     )}
+
+    deleteGift(giftId: any) {
+      // Append the 'giftId' to the URL as a parameter
+      const url = `http://localhost:3000/gifts/deletegift/${giftId}`;
+  
+      // Send the HTTP DELETE request
+      return this.http.delete(url);
+    }
 }
