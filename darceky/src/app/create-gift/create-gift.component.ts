@@ -84,7 +84,7 @@ export function openUserFormDialog(dialog: MatDialog) {
   const config = new MatDialogConfig();
   config.disableClose = true;
   config.autoFocus = true;
-  config.width="400px";
+  config.width="300px";
  // config.height="650px";
   const dialogRef = dialog.open(CreateGiftComponent, config);
   return dialogRef.afterClosed();

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { openUserFormDialog } from '../create-gift/create-gift.component';
 import { AuthService } from '../services/auth.service';
+import {DeleteConfirmDialogComponent} from '../delete-confirm-dialog/delete-confirm-dialog.component'
 @Component({
   selector: 'app-giftcard',
   templateUrl: './giftcard.component.html',
@@ -23,15 +24,12 @@ console.log("gifts:",this.listOfGift)
    }
 
   
- deleteGift(id:any){
-  console.log(id)
-  this.authservice.deleteGift(id).subscribe({next :(res: any) => { 
-    console.log(res.message)
-    location.reload()
-    },error:(error)=>{
-    
-    console.log("myerror",error.error)}})
- }
 
+ openDeleteConfirm(deleteId:any,giftName:any){
+  this.dialog.open(DeleteConfirmDialogComponent,{
+    data:{deleteId,giftName },
+    height: '80px'
+  })
+}
    
 }

@@ -1,0 +1,7 @@
+.delete-container{
+    padding: 5px;
+}
+.button-container{
+    display: flex;
+    justify-content: space-between;
+}

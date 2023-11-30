@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { RoutingModule } from './routing.module';
 import {SignupComponent} from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+import{DeleteConfirmDialogComponent} from './delete-confirm-dialog/delete-confirm-dialog.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     GiftcardComponent,
     CreateGiftComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    DeleteConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
