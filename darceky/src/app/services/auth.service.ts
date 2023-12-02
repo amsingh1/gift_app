@@ -29,4 +29,11 @@ export class AuthService {
       // Send the HTTP DELETE request
       return this.http.delete(url);
     }
+    
+    updateGiftReservedStatus(giftId: any, newReservedValue: boolean) {
+      const url = `http://localhost:3000/gifts/updategift/${giftId}`;
+      const requestBody = { reserved: newReservedValue };
+  
+      return this.http.patch(url, requestBody);
+    }
 }

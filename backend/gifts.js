@@ -55,7 +55,23 @@ router.post('/sendgift', (req, res) => {
     });
 });
 
+router.patch('/updategift/:id', (req, res) => {
+  const giftId = req.params.id;
+  const newReservedValue = req.body.reserved; // Assuming the new value is sent in the request body
 
+  // Update the reserved column for the specified gift
+  const updateSql = 'UPDATE gifts SET reserved = ? WHERE id = ?';
+  mysqlconnect.query(updateSql, [newReservedValue, giftId], (err, result) => {
+      if (err) {
+          console.error('Failed to update reserved column:', err);
+          res.status(500).json({ error: 'Failed to update reserved column' });
+          return;
+      }
+
+      console.log('Reserved column updated successfully', result);
+      res.status(200).json({ message: 'Reserved column updated successfully' });
+  });
+});
 
 
 

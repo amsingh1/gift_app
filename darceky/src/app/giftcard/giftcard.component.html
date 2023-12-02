@@ -18,19 +18,24 @@
     </mat-grid-tile>
 
 </mat-grid-list> -->
-<mat-grid-list cols="6" rowHeight="300px" gutterSize="100px">
-  <mat-grid-tile *ngFor="let item of listOfGift" [colspan]="1" [rowspan]="1">
+<mat-grid-list cols="6" rowHeight="300px" gutterSize="100px" >
+  <mat-grid-tile *ngFor="let item of listOfGift" [colspan]="1" [rowspan]="1" [ngStyle]="{'background-color': item.reserved  ? 'green' : ''}">
     <div class="grid-tile-container">
-      <p mat-button color="warn" class="delete-button" (click)="openDeleteConfirm(item.id,item.giftName)">X</p>
-      <a href="{{ item.giftLink }}" target="blank">
+      <a href="{{ item.giftLink }}"  [ngStyle]="{'pointer-events': item.reserved ? 'none' : 'inherit'}" disable="!item.reserved" target="blank">
         <div>
-          <h2>{{ item.giftName }}</h2>
+          <h2>{{ item.giftName | titlecase }}</h2>
           <div>
-            <img src="{{ item.imageLink }}" alt="Photo of a Shiba Inu"><br>
+            
+            <img src="{{ item.imageLink ? item.imageLink : 'https://balonkypraha.cz/images/thumbs/0014663_darkova-krabicka-luxus-christmas-rychloskladaci-12-x-15-cm_500.jpg'}}" alt="Photo of a Shiba Inu"><br>
           </div>
-          <button mat-button>BUY ME</button>
+          
         </div>
       </a>
+      
+      <div class="bottom-buttons">
+          <button mat-raised-button (click)="reserveGift(item.id)">{{item.reserved ? "UNBOOK": "BOOK"}}</button>
+          <button mat-icon-button color="warn" (click)="openDeleteConfirm(item.id,item.giftName)"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete" ></mat-icon> </button> 
+        </div>
     </div>
   </mat-grid-tile>
 </mat-grid-list>

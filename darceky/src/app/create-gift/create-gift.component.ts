@@ -18,7 +18,7 @@ export class CreateGiftComponent implements OnInit {
   formData = new FormGroup({
     giftName: new FormControl('',Validators.required),
     giftLink: new FormControl('',Validators.required),
-    imageLink:new FormControl('',Validators.required)
+    imageLink:new FormControl('')
   });
 
 
@@ -42,7 +42,7 @@ ngOnInit(){
     
   //console.log("giftdata",this.formData.value)
    this.formData.reset()
-   location.reload();
+   //location.reload();
   }
 
 // onSubmit() {

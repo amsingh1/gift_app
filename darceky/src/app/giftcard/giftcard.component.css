@@ -32,10 +32,15 @@ mat-grid-list{
     padding: 5px; /* Adjust padding as needed */
   }
   
-  .delete-button {
-    position: absolute;
-    top: 1px; /* Adjust top position as needed */
-    right: 1px; /* Adjust right position as needed */
-    border-radius: 50%;
+ 
+  
+  .bottom-buttons{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
   }
   
