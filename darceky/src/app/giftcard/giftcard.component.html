@@ -18,7 +18,7 @@
     </mat-grid-tile>
 
 </mat-grid-list> -->
-<mat-grid-list cols="6" rowHeight="300px" gutterSize="100px" >
+<mat-grid-list cols={{cols}} rowHeight="300px" gutterSize="100px" >
   <mat-grid-tile *ngFor="let item of listOfGift" [colspan]="1" [rowspan]="1" [ngStyle]="{'background-color': item.reserved  ? 'green' : ''}">
     <div class="grid-tile-container">
       <a href="{{ item.giftLink }}"  [ngStyle]="{'pointer-events': item.reserved ? 'none' : 'inherit'}" disable="!item.reserved" target="blank">
