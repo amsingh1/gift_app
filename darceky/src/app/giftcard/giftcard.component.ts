@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { openUserFormDialog } from '../create-gift/create-gift.component';
 import { AuthService } from '../services/auth.service';
 import {DeleteConfirmDialogComponent} from '../delete-confirm-dialog/delete-confirm-dialog.component'
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
   selector: 'app-giftcard',
   templateUrl: './giftcard.component.html',
@@ -11,18 +12,18 @@ import {DeleteConfirmDialogComponent} from '../delete-confirm-dialog/delete-conf
 export class GiftcardComponent implements OnInit {
 @Input() listOfGift:any=[]
 
-  
+cols = 5;
+  rowHeight = '150px';
 
-  constructor(private dialog: MatDialog,private authservice:AuthService){
+  constructor(private dialog: MatDialog,private authservice:AuthService,private breakpointObserver: BreakpointObserver){
 
   }
 
   ngOnInit(){
-  
-
-  
 console.log("gifts:",this.listOfGift)
-   
+
+this.responsiveDesign()
+
    }
 
    /* reserveGift(id:any){
@@ -64,4 +65,31 @@ console.log("gifts:",this.listOfGift)
   })
 }
    
+responsiveDesign(){
+  this.breakpointObserver
+.observe([Breakpoints.HandsetPortrait, Breakpoints.HandsetLandscape,Breakpoints.TabletLandscape,Breakpoints.TabletPortrait])
+.subscribe((result) => {
+  this.cols = 3;
+  this.rowHeight = '150px';
+  const breakpoints = result.breakpoints;
+
+  if (breakpoints[Breakpoints.HandsetPortrait]) {
+    this.cols = 1;
+  } else if (breakpoints[Breakpoints.HandsetLandscape]) {
+    this.cols = 3;
+  } else if (breakpoints[Breakpoints.TabletLandscape]) {
+    this.cols = 4;
+  }else if (breakpoints[Breakpoints.TabletPortrait]) {
+    this.cols = 3;
+  }else {
+    this.cols=5
+  }
+});
+}
+
+ 
+
+
+  
+
 }
