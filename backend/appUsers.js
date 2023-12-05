@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 
 const router = express.Router()
 const mysqlconnect = require ('./mysqlConnection')
+const SequelizeConnect = require('./sequelize')
 
 router.get('/testusers',(req,res)=> {
     console.log('testusers is working')
