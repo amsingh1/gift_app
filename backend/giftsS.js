@@ -21,7 +21,14 @@ const Gift = SequelizeConnect.define('gifts', {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
-    timestamps: true, // This line adds createdAt and updatedAt columns
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
   
 });
 

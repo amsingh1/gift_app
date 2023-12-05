@@ -1,13 +1,21 @@
 const Sequelize = require("sequelize");
+// filename.js
+const dotenv = require('dotenv');
+
+dotenv.config()
+
+console.log('DB_NAME:', process.env.DB_NAME);
+
 const sequelize = new Sequelize(
- 'giftApp',
- 'giftApp',
- 'password',
-  {
-    host: '127.0.0.1',
-    dialect: 'mysql'
-  }
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+      host: process.env.DB_HOST,
+      dialect: process.env.DB_DIALECT,
+    }
 );
+
 
 
 
@@ -18,3 +26,4 @@ sequelize.authenticate().then(() => {
 });
 
 module.exports=sequelize
+
