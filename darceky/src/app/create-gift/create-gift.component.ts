@@ -45,32 +45,7 @@ ngOnInit(){
    //location.reload();
   }
 
-// onSubmit() {
-//   if (this.formData.invalid) {
-//     return;
-//   }
 
-//   this.giftCardData.sendGiftData(this.formData.value).subscribe({
-//     next: (res: any) => {
-//       console.log(res.message, "gift list", res);
-//       this.giftDbValue = res.gift;
-//       console.log("this.giftDbValue", this.giftDbValue);
-
-//       // Close the dialog after receiving the response
-//       this.dialogRef.close(this.giftDbValue);
-//     },
-//     error: (error) => {
-//       console.log("myerror", error.error);
-//     },
-//   });
-
-//   // Remove the following line from here
-//   // this.dialogRef.close(this.giftDbValue);
-//   console.log("current DB gift", this.giftDbValue);
-
-//   // Reset the form after sending the gift data
-//   this.formData.reset();
-// }
 
   close() {
 

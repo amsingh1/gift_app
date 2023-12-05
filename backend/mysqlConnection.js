@@ -3,7 +3,7 @@
 const mysqlconn= require("mysql2")
 const db = mysqlconn.createConnection({
   host: '127.0.0.1',
-  user: 'root',
+  user: 'giftApp',
   password: 'password',
   database: 'giftApp',
 });
