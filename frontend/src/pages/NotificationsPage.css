@@ -1,0 +1,88 @@
+.notifications-list {
+  overflow: hidden;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gray-100);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item:hover {
+  background: var(--gray-50);
+}
+
+.notification-item.unread {
+  background: rgba(99, 102, 241, 0.03);
+}
+
+.notification-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--gray-100);
+  color: var(--gray-500);
+}
+
+.notification-icon.gift_reserved,
+.notification-icon.gift_unreserved {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.notification-icon.list_shared {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+}
+
+.notification-icon.gift_added {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--secondary);
+}
+
+.notification-icon.event_reminder {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-message {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.4;
+}
+
+.notification-time {
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+.notification-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .notification-item {
+    padding: 12px 16px;
+  }
+}
